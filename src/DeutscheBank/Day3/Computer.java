@@ -1,7 +1,11 @@
 package DeutscheBank.Day3;
 
-public class Solution {
+public class Computer {
+
+    String CPU;
+    int ram;
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
     }
 }
