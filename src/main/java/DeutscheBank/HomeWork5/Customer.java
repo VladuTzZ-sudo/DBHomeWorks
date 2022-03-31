@@ -1,6 +1,7 @@
-package DeutscheBank.HomeWork4;
+package DeutscheBank.HomeWork5;
 
 public class Customer {
+    private static int autoIncrementId = 0;
     private int id;
     private String username;
     private String last_name;
@@ -13,7 +14,7 @@ public class Customer {
 
     public Customer(CustomerBuilder customerBuilder) {
         try {
-            this.id = customerBuilder.id;
+            this.id = autoIncrementId++;
             this.username = customerBuilder.username;
             this.last_name = customerBuilder.last_name;
             this.first_name = customerBuilder.first_name;
@@ -64,6 +65,42 @@ public class Customer {
         return username;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -80,7 +117,6 @@ public class Customer {
     }
 
     static class CustomerBuilder {
-        private int id;
         private String username;
         private String last_name;
         private String first_name;
@@ -91,11 +127,6 @@ public class Customer {
         private String country;
 
         public CustomerBuilder() {
-        }
-
-        public CustomerBuilder id(int id) {
-            this.id = id;
-            return this;
         }
 
         public CustomerBuilder username(String username) {
@@ -139,7 +170,7 @@ public class Customer {
         }
 
         public Customer build() {
-            if (id != 0 && username != null && first_name != null && last_name != null && phone != null && address != null && city != null && country != null) {
+            if (username != null && first_name != null && last_name != null && phone != null && address != null && city != null && country != null) {
                 return new Customer(this);
             }
             return null;

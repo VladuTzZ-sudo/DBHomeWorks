@@ -14,6 +14,7 @@ public class PizzaFactory implements Subject {
         if (instance == null) {
             instance = new PizzaFactory();
         }
+
         return instance;
     }
 

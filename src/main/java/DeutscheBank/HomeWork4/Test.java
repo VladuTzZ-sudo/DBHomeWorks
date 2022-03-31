@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Test {
-    public static Customer getById(Connection connection, int id) throws SQLException {
+    /*public static Customer getById(Connection connection, int id) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM customers WHERE id =" + id);
 
@@ -177,7 +177,7 @@ public class Test {
         String password = "Mateivlad2001.";
         Connection connection = DriverManager.getConnection(connectionUrl, username, password);
 
-        for (Customer customer : getAll(connection)) {
+        /*for (Customer customer : getAll(connection)) {
             System.out.println(customer);
         }
 
@@ -194,21 +194,23 @@ public class Test {
         System.out.println();
         for (Customer customer : getAll(connection)) {
             System.out.println(customer);
-        }
+        }*/
 
         // Am folosit SpringFramework.expression.Expression deoarece ma gandesc ca poate oferi mult mai multa functionalitate.
         // Cumva poate as vrea chiar sa testez in cod o expresie inainte de a o folosi in sql.. in orice caz am incercat sa gasesc
         // o solutie mai buna decat un simplu string. Adaugarea intr-un arraylist ofera libertatea de a adauga oricate expresii,
         // aceasta fiind o alternativa la faptul ca o functie nu poate accepta decat o singura posibilitate de vaargs.
-        ArrayList<org.springframework.expression.Expression> expressions = new ArrayList<>();
-        expressions.add(new SpelExpressionParser().parseExpression("id <= 20"));
-        expressions.add(new SpelExpressionParser().parseExpression("address = 'acasa'"));
-        System.out.println();
-        System.out.println("TEST FILTER");
-        filter(connection,"customers", expressions, "id", "username", "first_name", "last_name", "address", "city", "country");
-        System.out.println();
+//        ArrayList<org.springframework.expression.Expression> expressions = new ArrayList<>();
+//        expressions.add(new SpelExpressionParser().parseExpression("id <= 20"));
+//        expressions.add(new SpelExpressionParser().parseExpression("address = 'acasa'"));
+//        System.out.println();
+//        System.out.println("TEST FILTER");
+//        filter(connection,"customers", expressions, "id", "username", "first_name", "last_name", "address", "city", "country");
+//        System.out.println();
+//
+//        expressions.add(new SpelExpressionParser().parseExpression("city = 'iasi'"));
+//        filter(connection, "customers" ,expressions);
 
-        expressions.add(new SpelExpressionParser().parseExpression("city = 'iasi'"));
-        filter(connection, "customers" ,expressions);
+
     }
 }
